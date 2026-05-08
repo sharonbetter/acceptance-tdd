@@ -1,6 +1,6 @@
 # 领域验收：订阅与计费
 
-**适用**：订阅创建、周期续费、试用转正、退款、发票等场景。
+**适用**：涉及「订阅 / 计费」时展开；金额类与 [acceptance-domain-commerce-payment.md](acceptance-domain-commerce-payment.md) **做交叉引用**。
 
 ---
 
