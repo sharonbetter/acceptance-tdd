@@ -1,6 +1,6 @@
 # 领域验收：交易与支付
 
-**适用**：下单、支付、退款、对账等交易场景。
+**适用**：spec / 迭代涉及「交易 / 支付」时用本文查漏 **Then**；与 [acceptance-domain-order-fulfillment.md](acceptance-domain-order-fulfillment.md)、[acceptance-domain-inventory-warehouse.md](acceptance-domain-inventory-warehouse.md) 等 **做交叉引用**，同一判据只在一处写全。
 
 ---
 
