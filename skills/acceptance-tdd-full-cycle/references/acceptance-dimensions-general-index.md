@@ -4,7 +4,7 @@
 
 **与本包 `SKILL.md` 第 2 节（ATDD）对齐**：每条验收场景须 **Given / When / Then** 齐全，**Then** 为对外可观察判据；在 **正常、异常、边界、参数非法** 之外再按 **当前业务领域** 补充。本目录各 **`acceptance-*.md`** 用于 **Then 判据查漏** 与场景备忘，落表格式、**待确认** 与 **2.1 验收文档交用户确认（闸门）** 见同包 [atdd-checklist-template.md](atdd-checklist-template.md)。
 
-**与「领域形态」及横切维度的分工（本技能内）**：**本目录 `acceptance-*.md`** 负责 **通用业务面**（登录、权限、分页、搜索、页面、手势等）与 **分领域 Then 展开**（各 `acceptance-domain-*`）。「本迭代命中 [domain-system-focus-areas.md](domain-system-focus-areas.md) 表中哪些形态」的判定与备忘见该文件；**横切质量与体验（DIM+UX）** 见 [cross-cutting-coverage-dimensions.md](cross-cutting-coverage-dimensions.md)。三处与 **验收场景表** 之间只 **互链** 场景标题或编号，**勿**各写一套矛盾的 Then。
+**与「领域分类表」及横切维度的分工（本技能内）**：**本目录 `acceptance-*.md`** 负责 **通用业务面**（登录、权限、分页、搜索、页面、手势等）与 **分领域 Then 展开**（各 `acceptance-domain-*`）。「本迭代是否适用 [domain-system-focus-areas.md](domain-system-focus-areas.md) 表中哪些行」的判定与备忘见该文件；**横切质量与体验**见 [cross-cutting-coverage-dimensions.md](cross-cutting-coverage-dimensions.md)（表中有 UI 时可标 `UX`）。三处与 **验收场景表** 之间只 **做交叉引用**（场景标题或编号），**勿**各写一套矛盾的 Then。
 
 ---
 
