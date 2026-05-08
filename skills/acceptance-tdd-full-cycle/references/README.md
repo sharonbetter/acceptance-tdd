@@ -1,42 +1,39 @@
-# references 参考文档目录
+# `acceptance-tdd-full-cycle` 包内索引
 
-本目录归集所有：模板、规范、通用验收点、领域验收点、TDD 纪律底座。
+本技能材料位于 **`SKILL.md`**、本 `references/` 目录及**上一级**的 `testing-*.md`。**验收与领域相关内容均在本目录闭环**，不引用其它路径。
 
-## 文件分类
+| 文件 | 说明 |
+|------|------|
+| [tdd-core.md](tdd-core.md) | 产码 TDD 铁律与红绿循环（产码节奏以该文为准） |
+| [atdd-checklist-template.md](atdd-checklist-template.md) | **验收文档确认**、**执行记录配套文件 `*.execution-log.md`**、主表 **场景名称 + 场景 ID**、Given/When/Then、**待确认**（**用户视角问句**）、**逐项确认节奏**、映射表；文末 **满减下单** 示例 |
+| [domain-system-focus-areas.md](domain-system-focus-areas.md) | **领域分类**判定表 + 与各 `acceptance-domain-*` **交叉引用** |
+| [cross-cutting-coverage-dimensions.md](cross-cutting-coverage-dimensions.md) | **横切维度与体验** 摘要（文内 **DIM** 为缩写，见该文说明） |
+| [acceptance-dimensions-general-index.md](acceptance-dimensions-general-index.md) | **通用验收维度**总览 → 下列各篇 |
+| [acceptance-general-auth-login.md](acceptance-general-auth-login.md) | 登录态、一致性、传输与日志 |
+| [acceptance-general-auth-register.md](acceptance-general-auth-register.md) | 注册唯一性、校验、密码策略 |
+| [acceptance-general-permissions.md](acceptance-general-permissions.md) | 权限有效、水平/垂直越权 |
+| [acceptance-general-batch-pagination.md](acceptance-general-batch-pagination.md) | 分页边界、兼容、批量幂等 |
+| [acceptance-general-search.md](acceptance-general-search.md) | 搜索组合、排序 |
+| [acceptance-general-ui-pages.md](acceptance-general-ui-pages.md) | 路由、参数、组件态、缓存、请求体 |
+| [acceptance-general-user-interactions.md](acceptance-general-user-interactions.md) | 点击、滑动、拖拽、长按与反馈 |
+| [acceptance-domain-commerce-payment.md](acceptance-domain-commerce-payment.md) | 交易 / 支付 |
+| [acceptance-domain-order-fulfillment.md](acceptance-domain-order-fulfillment.md) | 订单履约 |
+| [acceptance-domain-inventory-warehouse.md](acceptance-domain-inventory-warehouse.md) | 库存 / 仓储 |
+| [acceptance-domain-permissions-multitenancy.md](acceptance-domain-permissions-multitenancy.md) | 权限 / 多租户 |
+| [acceptance-domain-subscription-billing.md](acceptance-domain-subscription-billing.md) | 订阅 / 计费 |
+| [acceptance-domain-messaging-async.md](acceptance-domain-messaging-async.md) | 消息 / 异步 |
+| [acceptance-domain-live-realtime.md](acceptance-domain-live-realtime.md) | 直播 / 实时 |
+| [acceptance-domain-ops-config.md](acceptance-domain-ops-config.md) | 运营后台 / 配置 |
+| [acceptance-domain-ads-recommendation.md](acceptance-domain-ads-recommendation.md) | 广告 / 推荐 |
 
-### 1. 基础底座
-- `tdd-core.md`：产码 TDD 铁律流程
-- `atdd-checklist-template.md`：ATDD 正式验收文档模板
+**上一级（与 `SKILL.md` 同目录）**
 
-### 2. 质量横切维度
-- `cross-cutting-coverage-dimensions.md`：逆向/多入口/体验/运维横切覆盖
-- `domain-system-focus-areas.md`：判断当前需求属于哪些业务重域
+| 文件 | 说明 |
+|------|------|
+| [../testing-style-observable-behavior.md](../testing-style-observable-behavior.md) | **WHAT / HOW** |
+| [../testing-anti-patterns.md](../testing-anti-patterns.md) | **反模式与 Mock 禁区** |
 
-### 3. 通用公共验收（所有系统通用）
-`acceptance-general-*` 开头：
-- `acceptance-general-auth-login.md` — 登录与会话
-- `acceptance-general-auth-register.md` — 注册与开户
-- `acceptance-general-permissions.md` — 权限管理
-- `acceptance-general-batch-pagination.md` — 批量与分页
-- `acceptance-general-search.md` — 搜索与筛选
-- `acceptance-general-ui-pages.md` — 页面功能与数据流
-- `acceptance-general-user-interactions.md` — 页面操作与手势
+**阅读顺序（验收 → 产码）**  
 
-### 4. 领域专项验收（垂直业务）
-`acceptance-domain-*` 开头：
-- `acceptance-domain-commerce-payment.md` — 支付交易
-- `acceptance-domain-order-fulfillment.md` — 订单履约
-- `acceptance-domain-inventory-warehouse.md` — 库存仓储
-- `acceptance-domain-messaging-async.md` — 异步消息
-- `acceptance-domain-ops-config.md` — 运营配置
-- `acceptance-domain-ads-recommendation.md` — 广告推荐
-- `acceptance-domain-subscription-billing.md` — 订阅计费
-- `acceptance-domain-permissions-multitenancy.md` — 多租户权限
+上一级 [`../SKILL.md`](../SKILL.md) → [atdd-checklist-template.md](atdd-checklist-template.md) → [domain-system-focus-areas.md](domain-system-focus-areas.md) / [cross-cutting-coverage-dimensions.md](cross-cutting-coverage-dimensions.md) → [acceptance-dimensions-general-index.md](acceptance-dimensions-general-index.md) 及所需 **acceptance-domain-*** → [tdd-core.md](tdd-core.md) → [../testing-style-observable-behavior.md](../testing-style-observable-behavior.md) → [../testing-anti-patterns.md](../testing-anti-patterns.md)。
 
-## 使用顺序
-
-1. 先用 `domain-system-focus-areas.md` 判定领域形态
-2. 套用 `atdd-checklist-template.md` 编写验收清单
-3. 对照 `cross-cutting-coverage-dimensions.md` 补全质量边角
-4. 对应领域/通用 md 补齐专业验收点
-5. 落地开发遵守 `tdd-core.md`
