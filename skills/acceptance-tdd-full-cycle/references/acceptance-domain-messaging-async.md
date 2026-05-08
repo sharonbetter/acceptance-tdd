@@ -21,6 +21,7 @@
 | 重试策略 | 重试次数、间隔符合配置；重试失败死信处理正确 |
 | 补偿与回滚 | 异步任务失败时，前置操作补偿/回滚正确 |
 | 幂等处理 | 重复消息不重复处理；幂等键生效 |
+| 与支付回调 | 与 [acceptance-domain-commerce-payment.md](acceptance-domain-commerce-payment.md) 幂等节 **交叉引用**（一处写全判据） |
 
 ---
 
@@ -43,7 +44,7 @@
 
 ---
 
-## 5. 与通用验收的互链
+## 5. 与通用验收的交叉引用
 
 权限、分页、排序等通用场景见：
 - `acceptance-general-permissions.md`
