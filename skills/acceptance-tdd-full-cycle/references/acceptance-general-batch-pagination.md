@@ -45,4 +45,4 @@
 
 ## 5. 与分领域验收的关系
 
-迭代涉及 **订单 / 库存 / 交易**：批量扣减、部分发货等与 `acceptance-domain-order-fulfillment.md`、`acceptance-domain-inventory-warehouse.md` 互链，避免重复或矛盾
+若迭代涉及 **订单 / 库存 / 交易**：批量扣减、部分发货等与 [acceptance-domain-order-fulfillment.md](acceptance-domain-order-fulfillment.md)、[acceptance-domain-inventory-warehouse.md](acceptance-domain-inventory-warehouse.md) **做交叉引用**，避免重复或矛盾。
