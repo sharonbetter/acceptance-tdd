@@ -1,0 +1,29 @@
+{
+  "project_name": "example-web-app",
+  "project_type": "web",
+  "target_tool": "playwright",
+  "test_suite": "tests/e2e/**/*.feature",
+  "tool_config": {
+    "playwright": {
+      "config_file": "playwright.config.ts",
+      "reporter": "junit",
+      "reporter_output": "reports/junit.xml"
+    },
+    "appium": {
+      "platform": "android",
+      "app_package": "com.example.app",
+      "reporter": "junit",
+      "reporter_output": "reports/junit.xml"
+    },
+    "pytest": {
+      "config_file": "pytest.ini",
+      "reporter": "junitxml",
+      "reporter_output": "reports/junit.xml"
+    }
+  },
+  "harness": {
+    "delegate_profile": "k8s-delegate",
+    "timeout_minutes": 30,
+    "retry_count": 1
+  }
+}
