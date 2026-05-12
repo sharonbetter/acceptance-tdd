@@ -55,6 +55,73 @@ description: >-
 3. 每个 TDD 任务独立执行红→绿→重构循环
 4. 所有内循环任务完成后，运行所有单元测试 → 全绿 → 再跑外循环验收测试
 
+### ATDD 驱动协作接口，TDD 驱动实现细节
+
+ATDD 从验收测试的步骤中提炼出系统外部的协作接口（高层次接口骨架），TDD 再驱动模块内部的实现细节（算法、条件分支、异常处理）。
+
+**示例：用户注册功能的 ATDD → TDD 驱动过程**
+
+#### 步骤 1：编写验收测试（Gherkin 风格）
+
+```gherkin
+Feature: 用户注册
+  Scenario: 使用有效邮箱和密码注册
+    Given 未注册的用户邮箱 "test@example.com"
+    When 用户提交注册请求，密码为 "Abc12345"
+    Then 系统返回注册成功消息
+    And 系统向该邮箱发送验证邮件
+```
+
+#### 步骤 2：将描述转化为自动化验收测试代码（骨架）
+
+```java
+// 注意：此时 UserRegistrationSteps 类完全是空的，只有方法签名
+public class UserRegistrationSteps {
+    @Given("未注册的用户邮箱 {string}")
+    public void 未注册的用户邮箱(String email) {
+        // 空实现 —— 这个空骨架就是驱动点
+    }
+
+    @When("用户提交注册请求，密码为 {string}")
+    public void 用户提交注册请求密码为(String password) {
+        // 空实现
+    }
+
+    @Then("系统返回注册成功消息")
+    public void 系统返回注册成功消息() {
+        // 空实现
+    }
+
+    @And("系统向该邮箱发送验证邮件")
+    public void 系统向该邮箱发送验证邮件() {
+        // 空实现
+    }
+}
+```
+
+#### 步骤 3：ATDD 驱动代码生成的逻辑
+
+为了填写这些空方法，需要真实的类和方法，这自然驱动出以下设计决策：
+
+| 验收步骤 | 驱动出的设计 |
+|----------|-------------|
+| Given "未注册的用户邮箱" | `UserRepository` 类，含 `existsByEmail(email)` 方法 |
+| When "用户提交注册请求" | `RegistrationService` 类，含 `register(email, password)` 方法 |
+| Then "系统返回注册成功消息" | `RegistrationResult` 枚举或对象，作为返回值类型 |
+| And "系统向该邮箱发送验证邮件" | `EmailService` 类，含 `sendVerificationEmail(email)` 方法 |
+
+#### 步骤 4：进入 TDD 内循环，驱动细节代码
+
+对 `RegistrationService.register()` 方法进行 TDD：
+
+1. **红**：写单元测试 `shouldReturnSuccessWhenNewUserRegisters()`
+2. **绿**：写极简实现——调用 `userRepository.existsByEmail()` 检查，若不存在则创建用户，最后调用 `emailService.sendVerificationEmail()`
+3. **重构**：优化代码结构，测试保持通过
+
+**关键点**：
+- ATDD 驱动了**模块间的协作协议**（高层次的接口骨架）
+- TDD 驱动了**模块内部的实现细节**（算法、条件分支、异常处理）
+
 ---
 
 ## 二、工作流（按顺序，可迭代）
